@@ -60,7 +60,7 @@ class RidanParser implements ParserInterface
 
     public function __construct(
         HttpClientInterface $httpClient,
-        ?LoggerInterface $logger = new NullLogger()
+        ?LoggerInterface $logger = null
     ) {
         $this->httpClient = $httpClient;
         $this->logger = $logger ?? new NullLogger();
