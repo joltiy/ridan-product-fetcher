@@ -101,10 +101,18 @@ class CurlHttpClient implements HttpClientInterface
     {
         // Простая реализация для этого метода
         if (isset($options['timeout'])) {
-            $this->timeout = (int) $options['timeout'];
+            if (is_numeric($options['timeout'])) {
+                $this->timeout = (int)$options['timeout'];
+            } else {
+                throw new \InvalidArgumentException("Option 'timeout' must be a numeric value.");
+            }
         }
         if (isset($options['user_agent'])) {
-            $this->userAgent = $options['user_agent'];
+            if (is_string($options['user_agent'])) {
+                $this->userAgent = $options['user_agent'];
+            } else {
+                throw new \InvalidArgumentException("Option 'user_agent' must be a string.");
+            }
         }
         if (isset($options['verify_ssl'])) {
             $this->verifySSL = (bool) $options['verify_ssl'];
