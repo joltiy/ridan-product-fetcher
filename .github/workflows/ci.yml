@@ -95,7 +95,7 @@ jobs:
       - name: Generate coverage report
         run: |
           mkdir -p coverage
-          ./vendor/bin/phpunit --coverage-clover=coverage/clover.xml --coverage-html=coverage/html
+          ./vendor/bin/phpunit --coverage-clover=coverage/clover.xml --coverage-html=coverage/html --log-junit junit.xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
@@ -104,12 +104,20 @@ jobs:
           flags: unittests
           name: codecov-umbrella
 
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
       - name: Upload coverage report as artifact
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage/html
           retention-days: 7
+
+
 
   security:
     runs-on: ubuntu-latest

@@ -55,3 +55,4 @@
   "prefer-stable": true
 
 }
+./vendor/bin/phpunit --log-junit junit.xml

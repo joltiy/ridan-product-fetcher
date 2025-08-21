@@ -4,7 +4,7 @@
 
 ![CI](https://github.com/joltiy/ridan-product-fetcher/actions/workflows/ci.yml/badge.svg)
 ![Coverage](https://codecov.io/gh/joltiy/ridan-product-fetcher/branch/main/graph/badge.svg)
-
+[![codecov](https://codecov.io/github/joltiy/ridan-product-fetcher/graph/badge.svg?token=I1K22JRXIK)](https://codecov.io/github/joltiy/ridan-product-fetcher)
 ## 📦 Возможности
 
 - 🔍 **Поиск по артикулу** - Получение полной информации по артикулу производителя

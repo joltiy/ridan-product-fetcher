@@ -5,3 +5,4 @@ composer.phar
 /coverage/
 .idea
 /composer.lock
+/junit.xml
