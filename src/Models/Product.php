@@ -52,11 +52,11 @@ class Product
     public static function fromArray(array $data): self
     {
         return new self(
-            $data['article'] ?? '',
-            $data['files'] ?? [],
-            $data['images'] ?? [],
-            $data['specification'] ?? [],
-            $data['main_specification'] ?? []
+            (string)($data['article'] ?? ''),
+            (array)($data['files'] ?? []),
+            (array)($data['images'] ?? []),
+            (array)($data['specification'] ?? []),
+            (array)($data['main_specification'] ?? [])
         );
     }
 

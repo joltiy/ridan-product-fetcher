@@ -156,7 +156,7 @@ class RidanParser implements ParserInterface
     }
 
     /**
-     * @return array<int, array<int, string>> Возвращает массив пар (ссылки и текст)
+     * @return array<array{string, string}> Возвращает массив пар (ссылки и текст)
      */
     private function extractFiles(DOMXPath $htmlXPath): array
     {
@@ -175,7 +175,7 @@ class RidanParser implements ParserInterface
 
                 // Если буфер заполнен парой [url, имя], добавляем в результаты
                 if (count($buffer) === 2) {
-                    $results[] = [$this->getDomain() . $buffer[0], $buffer[1]];
+                    $results[] = [$this->getDomain() . $buffer[0], (string)$buffer[1]];
                     $buffer = []; // Сброс буфера
                 }
             }
